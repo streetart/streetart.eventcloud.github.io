@@ -1,0 +1,50 @@
+@charset 'utf-8';
+
+//for debug -- Remove in prod
+$pesticide-debug-outline: false;
+$pesticide-debug-depth: false;
+@import "./assets/sass/settings/pesticide";
+
+
+//Settings
+@import "./assets/sass/settings/settings";
+
+//Grid
+@import "./assets/sass/grid/grid-module";
+
+// Typography
+
+@import "./assets/sass/typography/typography";
+
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+// Import a pre-built theme
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+// Import your custom input theme file so you can call the custom-input-theme function
+
+
+
+
+// Fragments
+//Single elements used throughout the framework
+@import "./assets/sass/fragments/base-container";
+
+
+//global Styles
+@import "./assets/sass/global";
+
+//Page Views
+@import "./assets/sass/components/brand-guide";
+
+
+//Helpers
+@import "assets/sass/helpers/media-queries";
+//
+//------------------------------------
+// @includes
+// All includes that build up the sites elements
+@include grid-block;
+
+@include media-queries;
+@include typography;
+
+

@@ -1,0 +1,53 @@
+// Base typography styles (tags only)
+@import 'base';
+// Text alignment classes
+@import 'alignment';
+// All fonts and Icons for the Site
+@import "fonts";
+//Font icons by Fontawesome.io
+@import "icons";
+
+// Alignment
+.text-left {
+  text-align: left !important;
+}
+
+.text-right {
+  text-align: right !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.text-justify {
+  text-align: justify !important;
+}
+
+.text-nowrap {
+  white-space: nowrap !important;
+}
+
+// Transformation
+.text-lowercase {
+  text-transform: lowercase;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+@mixin typography {
+  @include typography-base;
+  @include text-alignment;
+}

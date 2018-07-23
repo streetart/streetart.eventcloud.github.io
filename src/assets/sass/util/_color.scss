@@ -1,0 +1,39 @@
+@import "../skin/skin";
+
+@function foreground($color, $yes: $black, $no: $white, $threshold: 60%) {
+  @if $color == transparent {
+    $color: $body-background;
+  }
+  @if (lightness($color) > $threshold) {
+    @return $yes;
+  }
+  @else {
+    @return $no;
+  }
+}
+
+/// Scales a color to be lighter if it's light, or darker if it's dark. Use this function to tint a color appropriate to its lightness.
+@function smart-scale($color, $scale: 5%, $threshold: 40%) {
+  @if lightness($color) > $threshold {
+    $scale: -$scale;
+  }
+  @return scale-color($color, $lightness: $scale);
+}
+
+@mixin add-eventcloud-colors() {
+  @if map-has-key($color-palette, primary) {
+    $primary-color: map-get($color-palette, primary) !global;
+  }
+  @if map-has-key($color-palette, secondary) {
+    $secondary-color: map-get($color-palette, secondary) !global;
+  }
+  @if map-has-key($color-palette, success) {
+    $success-color: map-get($color-palette, success) !global;
+  }
+  @if map-has-key($color-palette, warning) {
+    $warning-color: map-get($color-palette, warning) !global;
+  }
+  @if map-has-key($color-palette, alert) {
+    $alert-color: map-get($color-palette, alert) !global;
+  }
+}

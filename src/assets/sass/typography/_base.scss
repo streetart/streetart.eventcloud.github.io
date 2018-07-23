@@ -1,0 +1,43 @@
+@mixin typography-base {
+  // Paragraphs
+  p {
+    font-size: $global-font-size;
+    font-family: $body-font-family !important;
+    line-height: $paragraph-lineheight;
+    margin-bottom: $paragraph-margin-bottom;
+    text-rendering: $paragraph-text-rendering;
+    font-weight: $body-font-weight !important;
+    color: $text-color;
+
+    &.small {
+      font-size: calc(12px + (12 - 10) * ((100vw - 300px) / (1600 - 300)));
+      line-height: 1.2 !important;
+      font-family: $body-font-family-light;
+    }
+    &.warning {
+      color: $alert-color;
+    }
+    &.info {
+      background-color: $warning-color;
+    }
+    &.medium {
+      font-size: calc(20px + (20 - 16) * ((100vw - 300px) / (1600 - 300)));
+      font-family: $header-font-family-semi;
+    }
+    &.large {
+      font-size: 24px;
+    }
+    &.bold {
+      font-family: $header-font-family !important;
+    }
+  }
+
+  p.meta {
+    color: $text-color;
+    font-size: calc(12px + (12 - 10) * ((100vw - 300px) / (1600 - 300)));
+    line-height: $paragraph-lineheight;
+    text-rendering: $paragraph-text-rendering;
+    margin: 10px 0 0;
+  }
+
+}

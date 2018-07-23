@@ -1,0 +1,393 @@
+@mixin button-base {
+  @include disable-mouse-outline;
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  -webkit-appearance: none;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  vertical-align: text-bottom;
+  border: 1px solid transparent;
+  padding: $button-padding;
+  margin: $button-margin;
+  font-size: map-get($button-sizes, default);
+  border-radius: $button-radius;
+  text-transform: uppercase;
+  font-weight: $button-font-weight;
+  letter-spacing: $button-letter-spacing;
+  height: auto;
+  line-height: 1.2;
+}
+/// Expands a button to make it full-width.
+/// @param {Boolean} $expand [true] - Set to `true` to enable the expand behavior. Set to `false` to reverse this behavior.
+@mixin button-expand($expand: true) {
+  @if $expand {
+    display: block;
+    min-width: 100% !important;
+    margin-left: 0;
+    margin-right: 0;
+  }
+  @else {
+    display: inline-block;
+    width: auto;
+    margin: $button-margin;
+  }
+}
+
+@mixin button-back($back-btn: true) {
+  @if $back-btn {
+    min-width: 85px !important;
+    background-color: rgba(147,158,168,.2);
+    color: #939ea8;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+  }
+}
+
+/// Sets the visual style of a button.
+/// @param {Color} $background [$button-background] - Background color of the button.
+/// @param {Color} $background-hover [$button-background-hover] - Background color of the button on hover. Set to `auto` to have the mixin automatically generate a hover color.
+/// @param {Color} $color [$button-color] - Text color of the button. Set to `auto` to automatically generate a color based on the background color.
+@mixin button-style(
+  $background: $button-background,
+  $background-hover: $button-background-hover,
+  $color: set-text-color($button-color)
+) {
+  @if $color == auto {
+    $color: foreground($background, $button-color-alt, $button-color);
+  }
+
+  @if $background-hover == auto {
+    $background-hover: scale_color($background, $lightness: -20%);
+  }
+
+  background-color: $background;
+  color: $color;
+
+  &:hover, &:focus {
+    background-color: $background-hover;
+    color: $color;
+  }
+}
+
+/// Removes background fill on hover and focus for hollow buttons.
+@mixin button-hollow {
+  &,
+  &:hover, &:focus {
+    background-color: transparent;
+  }
+}
+
+@mixin button-hollow-style($color: $white){
+  $color-hover: scale_color($color, $lightness: -50%);
+  background-color: transparent !important;
+  border: 1px solid $color;
+  color: $color;
+
+  &:hover, &:focus {
+    border-color: $primary;
+    color: $primary;
+  }
+}
+
+
+/// Adds disabled styles to a button by fading the element, reseting the cursor, and disabling pointer events.
+@mixin button-disabled {
+  opacity: $button-opacity-disabled;
+  cursor: not-allowed;
+
+
+
+  &:hover, &:focus {
+    background-color: $button-background;
+    color: $primary-color;
+  }
+}
+
+/// Adds a dropdown arrow to a button.
+/// @param {Number} $size [0.4em] - Size of the arrow. We recommend using an `em` value so the triangle scales when used inside different sizes of buttons.
+/// @param {Color} $color [white] - Color of the arrow.
+/// @param {Number} $offset [$button-padding] - Distance between the arrow and the text of the button. Defaults to whatever the right padding of a button is.
+
+@mixin button-dropdown(
+  $size: 0.4em,
+  $color: $white,
+  $offset: get-side($button-padding, right)
+){
+  &::after {
+    @include css-triangle($size, $color, down);
+    position: relative;
+    top: 0.4em; //Align the arrow with the text of the button
+    float: right;
+    margin-left: $offset;
+    display: inline-block;
+  }
+}
+
+
+/// Adds all styles for a button. For more granular control over styles, use the individual button mixins.
+/// @param {Boolean} $expand [false] - Set to `true` to make the button full-width.
+/// @param {Color} $background [$button-background] - Background color of the button.
+/// @param {Color} $background-hover [$button-background-hover] - Background color of the button on hover. Set to `auto` to have the mixin automatically generate a hover color.
+/// @param {Color} $color [$button-color] - Text color of the button. Set to `auto` to automatically generate a color based on the background color.
+/// @param {Keyword} $style [solid] - Set to `hollow` to create a hollow button. The color defined in `$background` will be used as the primary color of the button.
+
+@mixin button(
+  $back-btn: false,
+  $expand: false,
+  $background: $button-background,
+  $background-hover: $button-background-hover,
+  $color: set-text-color($button-color),
+  $style: $button-fill
+){
+  @include button-base;
+
+  @if $style == solid {
+    @include button-style($background, $background-hover, $color)
+  }
+  @else if $style == hollow {
+    @include button-hollow;
+    @include button-hollow-style($background)
+  }
+
+  @if $expand {
+    @include button-expand;
+  }
+
+  @if $back-btn {
+    @include button-back;
+  }
+}
+
+
+
+@mixin eventcloud-button {
+  button.underLine {
+    border-bottom: 1px solid $primary;
+  }
+
+  .button, .button.mat-button {
+    @include button;
+
+
+
+    // Sizes
+    @each $size, $value in map_remove($button-sizes, default){
+      &.#{$size} {
+        font-size: $value;
+      }
+    }
+
+    &.expanded {
+      @include button-expand;
+    }
+    &.back-btn {
+      @include button-back;
+    }
+
+
+    @media (max-width: 767px) {
+      &.expanded-xs {
+        @include button-expand;
+      }
+    }
+
+    &.uppercase {
+      text-transform: uppercase;
+    }
+
+    // Colors
+    @each $name, $color in $color-palette {
+      @if $button-fill != hollow {
+        &.#{$name} {
+          @include button-style($color, auto, auto);
+        }
+      }
+      @else {
+        &.#{$name}{
+          @include button-hollow-style($color);
+        }
+
+        &.#{$name}.dropdown::after {
+          border-top-color: $color;
+        }
+      }
+    }
+
+    // Hollow style
+    @if $button-fill != hollow {
+      &.hollow {
+        @include button-hollow;
+        @include button-hollow-style;
+
+        @each $name, $color in $color-palette{
+          &.#{name} {
+            @include button-hollow-style($color);
+          }
+        }
+      }
+    }
+
+    // Disabled styles
+    &.disabled,
+    &[disabled] {
+      @include button-disabled;
+    }
+
+
+    // Dropdown arrow
+    &.dropdown {
+      @include button-dropdown;
+
+      @if $button-fill == hollow {
+        &::after {
+          border-top-color: $button-background;
+        }
+      }
+    }
+
+    // Button with dropdown arrow only
+    &.arrow-only::after {
+      margin-left: 0;
+      float: none;
+      top: -0.1em;
+    }
+  }
+  .facebook-color {
+    background: $facebook !important;
+    color: $white;
+  }
+
+  .google-color {
+    background: $googleplus !important;
+    color: $white;
+  }
+
+
+}
+
+
+@mixin clear-btn {
+  .clear-btn {
+    float: left;
+    width: 20%;
+  }
+}
+
+
+@mixin button-animation {
+  /*
+  https://developer.mozilla.org/en/docs/Web/CSS/box-shadow
+  box-shadow: [inset?] [top] [left] [blur] [size] [color];
+
+  Tips:
+    - We're setting all the blurs to 0 since we want a solid fill.
+    - Add the inset keyword so the box-shadow is on the inside of the element
+    - Animating the inset shadow on hover looks like the element is filling in from whatever side you specify ([top] and [left] accept negative values to become [bottom] and [right])
+    - Multiple shadows can be stacked
+    - If you're animating multiple shadows, be sure to keep the same number of shadows so the animation is smooth. Otherwise, you'll get something choppy.
+*/
+
+  // Animate the size, inside
+  .fill:hover,
+  .fill:focus {
+    box-shadow: inset 0 0 0 2em var(--hover);
+  }
+
+  // Animate the size, outside
+  .pulse:hover,
+  .pulse:focus {
+    animation: pulse 1s;
+    box-shadow: 0 0 0 2em rgba(#fff,0);
+  }
+
+  @keyframes pulse {
+    0% { box-shadow: 0 0 0 0 var(--hover); }
+  }
+
+  // Stack multiple shadows, one from the left, the other from the right
+  .close:hover,
+  .close:focus {
+    box-shadow:
+      inset -3.5em 0 0 0 var(--hover),
+      inset 3.5em 0 0 0 var(--hover);
+  }
+
+  // Size can also be negative; see how it's smaller than the element
+  .raise:hover,
+  .raise:focus {
+    box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+    transform: translateY(-0.25em);
+  }
+
+  // Animating from the bottom
+  .up:hover,
+  .up:focus {
+    box-shadow: inset 0 -3.25em 0 0 var(--hover);
+  }
+
+  // And from the left
+  .slide:hover,
+  .slide:focus {
+    box-shadow: inset 6.5em 0 0 0 var(--hover);
+  }
+
+  // Multiple shadows, one on the outside, another on the inside
+  .offset {
+    box-shadow:
+      0.3em 0.3em 0 0 var(--color),
+      inset 0.3em 0.3em 0 0 var(--color);
+
+    &:hover,
+    &:focus {
+      box-shadow:
+        0 0 0 0 var(--hover),
+        inset 6em 3.5em 0 0 var(--hover);
+    }
+  }
+
+  //=== Set button colors
+  // If you wonder why use Sass vars or CSS custom properties...
+  // Make a map with the class names and matching colors
+  $colors: (
+    fill: #a972cb,
+    pulse: #ef6eae,
+    close: #ff7f82,
+    raise: #ffa260,
+    up: #e4cb58,
+    slide: #8fc866,
+    offset: #19bc8b
+  );
+
+  // Sass variables compile to a static string; CSS variables are dynamic and inherited
+  // Loop through the map and set CSS custom properties using Sass variables
+  @each $button, $color in $colors {
+    .#{$button} {
+      --color: #{$color};
+      --hover: #{adjust-hue($color, 45deg)};
+    }
+  }
+
+  // Now every button will have different colors as set above. We get to use the same structure, only changing the custom properties.
+  .button {
+    color: var(--color);
+    transition: 0.25s;
+    border-radius: 50px;
+
+    &:hover,
+    &:focus {
+      border-color: var(--hover);
+      color: #fff;
+    }
+  }
+  // Basic button styles
+  .button {
+    background: none;
+    border: 2px solid;
+    font: inherit;
+    line-height: 1;
+    margin: 0.5em;
+    padding: 1em 2em;
+  }
+}
+

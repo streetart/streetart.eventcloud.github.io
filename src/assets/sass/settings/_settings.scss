@@ -1,0 +1,160 @@
+@import '../util/modules';
+
+
+
+// 1. Swatch
+//-------------
+
+@include add-eventcloud-colors;
+
+$lightest-gray: #f5f7fa !default;
+$light-gray: #F0F3F6 !default;
+$medium-gray: #8c9ba5 !default;
+$dark-gray: #333333 !default;
+$black: #0a0a0a !default;
+$white: #ffffff !default;
+$text-color: #736F8D !default;
+
+$transparent-dark: rgba(30, 41, 59, 0.2);
+$transparent-light: rgba(255, 255, 255, 0.2);
+$body-background: #FAFAFA;
+
+
+$primary-dark: #150F41;
+$primary: #029AAE;
+$secondary: #E52050;
+$tertiary: #EE7C11;
+$success: #0ED971;
+$warning: #FAC105;
+$alert-color: #EC407A;
+$footer: $white;
+
+
+
+// 2. Grid
+//-------------
+
+$container-fluid-max-width: 100%;
+$container-padding: 10px;
+$row-margin-removed: 0px;
+$col-padding: $container-padding;
+
+// 3. Global
+//-------------
+
+$global-font-size: calc(16px + (16 - 14) * ((50% - 300px) / (1600 - 300)));
+$global-width: rem-calc(1200);
+$global-lineheight: 1.2 !important;
+
+$global-margin: 1rem;
+$global-padding: 1rem;
+$global-weight-light: 400;
+$global-weight-normal: normal;
+$global-weight-bold: bold;
+$global-radius: 3px;
+$global-lg-radius: 10px;
+$global-text-direction: ltr;
+$global-flexbox: false;
+$print-transparent-backgrounds: true;
+
+
+
+// 4. Base Typography
+// ------------------
+
+$body-font-color: $text-color !default;
+$body-font-family-light: 'eina03-lightuploaded_file', sans-serif !default;
+$body-font-family:  'eina03-regularuploaded_file', sans-serif !default;
+$header-font-family: 'eina03-bolduploaded_file', sans-serif !default;
+$header-font-family-semi: 'eina03-semibolduploaded_file', sans-serif !default;
+$body-font-weight: normal;
+
+$body-antialiased: true;
+
+$header-font-weight: bolder;
+$header-font-style: 900;
+$header-font-color: $white;
+$header-line-height: 2;
+$letter-spacing: 0.05rem;
+
+//$header-font-size: calc(40px + (75 - 40) * ((100vw - 300px) / (2000 - 300)));;
+
+$h1-font-size: calc(40px + (75 - 40) * ((100vw - 300px) / (2000 - 300)));
+$h2-font-size: calc(35px + (60 - 35) * ((100vw - 300px) / (2000 - 300)));
+$h3-font-size: calc(40px + (40 - 32) * ((50% - 300px) / (1600 - 300)));
+$h4-font-size: calc(30px + (30 - 22) * ((50% - 300px) / (1600 - 300)));
+$h5-font-size: calc(25px + (25 - 18) * ((50% - 300px) / (1600 - 300)));
+$h6-font-size: calc(20px + (20 - 16) * ((50% - 300px) / (1600 - 300)));
+
+$title-sizes: calc(22px + (22 - 18) * ((50% - 300px) / (1600 - 300)));
+
+//$header-sizes: (
+//  small: (
+//    'h1': $h1-font-size,
+//    'h2': $h2-font-size,
+//    'h3': 19,
+//    'h4': 18,
+//    'h5': 17,
+//    'h6': 14,
+//  ),
+//  medium: (
+//    'h1': 50,
+//    'h2': 40,
+//    'h3': 31,
+//    'h4': 25,
+//    'h5': 20,
+//    'h6': 16,
+//  ),
+//);
+
+
+$header-lineheight: 1.4;
+$header-margin-bottom: 0.5rem;
+$text-decoration: none;
+
+
+
+// 5 Paragraphs
+// ------------------
+$paragraph-lineheight: 1.4 !important;
+$paragraph-margin-bottom: 1rem !default;
+$paragraph-text-rendering: optimizeLegibility !default;
+
+
+//6 Headers
+// ------------------
+h1, h2, h3, h4, h5, h6 {
+  font-family: $header-font-family;
+  letter-spacing: $letter-spacing;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+
+
+
+
+
+
+// 4. Buttons
+// ------------------
+$button-padding: 16px 10px;
+$button-margin: 10px 5px;
+$button-fill: solid;
+$button-background: $primary-color;
+$button-background-hover: scale-color($button-background, $lightness: -15%);
+$button-color: $white;
+$button-color-alt: $white;
+$button-radius: $global-radius;
+$button-sizes: (
+  tiny: 0.6rem,
+  small: 0.75rem,
+  default:16px,
+  large: 1.25rem,
+);
+$button-opacity-disabled: 0.25;
+$button-letter-spacing: 0.02rem;
+$button-font-weight: 400;
+
+
+@import "../util/modules";

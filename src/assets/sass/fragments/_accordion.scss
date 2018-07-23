@@ -1,0 +1,40 @@
+.accordion-container {
+  .mat-expansion-panel {
+    margin-bottom: $global-margin;
+    box-shadow: none !important;
+  }
+  .mat-expansion-panel.mat-expanded {
+    .mat-expansion-panel-header {
+      background-color: $primary-dark;
+      .mat-expansion-panel-header-description {
+        color: $white;
+        .mat-icon.material-icons {
+          color: $white;
+          -webkit-transform: rotateZ(720deg);
+          -moz-transform: rotateZ(720deg);
+          transform: rotateZ(720deg);
+        }
+      }
+    }
+  }
+
+  .mat-expansion-panel-header {
+    padding: 40px 16px;
+    font-size: $title-sizes;
+    font-family: $header-font-family-semi;
+    text-transform: uppercase;
+    background-color: $light-gray;
+    transition: all 500ms ease-in-out;
+
+
+  }
+  .mat-expansion-panel-header-title, .mat-expansion-panel-header-description {
+    flex-basis: 0 ;
+  }
+  .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+    color: $header-font-color;
+    transition: all 500ms ease-in-out;
+  }
+}
