@@ -17,6 +17,7 @@ import {PageNotFoundComponent} from './page-not-found.component';
 import {AppRoutingModule} from './app-routing.module';
 import {WeatherTodayComponent} from './weather-today/weather-today.component';
 import {SideNavComponent} from './components/side-nav/side-nav.component';
+import { BaseComponent } from './templates/base/base.component';
 
 
 
@@ -38,14 +39,15 @@ import {SideNavComponent} from './components/side-nav/side-nav.component';
 
     declarations: [
         AppComponent,
-        WeatherSearchComponent,
+       WeatherSearchComponent,
         WeatherListComponent,
         WeatherItemComponent,
         HeaderComponent,
         PageNotFoundComponent,
         WeatherTodayComponent,
         SideNavComponent,
-        MatNavList
+        MatNavList,
+        BaseComponent
 
     ],
 

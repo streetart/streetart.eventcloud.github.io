@@ -5,3 +5,19 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+.e-logo img{
+  max-width: 300px;
+  height: 30px;
+  margin-top: 5px;
+}
+
+.mat-drawer {
+  min-width: 300px;
+}
+@media screen and (max-width: 599px) {
+
+  .mat-toolbar-row, .mat-toolbar-single-row {
+    height: 62px !important;
+  }
+}

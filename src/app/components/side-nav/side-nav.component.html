@@ -1,27 +1,52 @@
 <mat-sidenav-container fullscreen>
-  <mat-sidenav #sidenav>
-    <mat-nav-list>
-      <a mat-list-item>
-        <mat-icon mat-list-icon>home</mat-icon>
-        <span mat-line>home</span>
-      </a>
+    <mat-sidenav #sidenav>
+        <mat-nav-list>
+            <a mat-list-item>
+                <mat-icon mat-list-icon>home</mat-icon>
+                <span mat-line>home</span>
+            </a>
 
-      <a mat-list-item>
-        <mat-icon mat-list-icon>backup</mat-icon>
-        <span mat-line>Backup</span>
-      </a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-toolbar color="primary">
-    <button mat-icon-button (click)="sidenav.open()" fxHide="false" fxHide.gt-sm>
-      <mat-icon>menu</mat-icon>
-    </button>
-    <span> Big Header</span>
-
-      <span class="example-spacer"></span>
-    <span>
+            <a mat-list-item>
+                <mat-icon mat-list-icon>backup</mat-icon>
+                <span mat-line>Backup</span>
+            </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-toolbar color="primary">
+        <!--<button mat-icon-button (click)="sidenav.open()" fxHide="false" fxHide.gt-sm>-->
+            <!--<mat-icon>menu</mat-icon>-->
+        <!--</button>-->
+        <span>
+        <div class="e-logo"  (click)="sidenav.open()" fxHide="false" fxHide.gt-sm>
+        <img src="../../../assets/images/eventCloud-branding/eventcloud-logo-horizontal.png">
+    </div>
     </span>
-  </mat-toolbar>
+        <span class="example-spacer"></span>
+
+        <span>
+
+        </span>
+    </mat-toolbar>
+
+    <div class='contain'>
+        <div class='control'>
+            <div class='btn-material'></div>
+            <mat-icon class='material-icons icon-material-search'>search</mat-icon>
+        </div>
+    </div>
+    <div class='contain contain-dark p-y-md'>
+       <h1>Weather App</h1>
+    </div>
+
+
+    <!-- full screen form controls -->
+    <i class='icon-close close material-icons'>close</i>
+    <div class='search-input'>
+        <app-weather-search></app-weather-search>
+        <!--<input class='input-search' placeholder='Seach by city' type='text'>-->
+    </div>
+
+
     <router-outlet></router-outlet>
 </mat-sidenav-container>
 

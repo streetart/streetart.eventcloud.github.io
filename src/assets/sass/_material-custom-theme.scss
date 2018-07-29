@@ -15,3 +15,9 @@ $candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
 @include mat-core-theme($candy-app-theme);
 @include mat-button-theme($candy-app-theme);
 @include mat-checkbox-theme($candy-app-theme);
+@media screen and (max-width: 599px) {
+
+  .mat-toolbar-row, .mat-toolbar-single-row {
+    height: 62px !important;
+  }
+}
