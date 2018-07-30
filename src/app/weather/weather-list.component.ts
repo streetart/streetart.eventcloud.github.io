@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'weather-list',
   templateUrl: './weather-list.component.html',
-  styleUrls: ['./weather-list.component.css'],
+  styleUrls: ['./weather-list.component.scss'],
   providers: [WeatherService]
 })
 export class WeatherListComponent implements OnInit {

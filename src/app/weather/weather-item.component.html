@@ -1,3 +1,4 @@
+<div class="col-sm-2 col-md-4">
 <mat-card>
     <h2 style="text-transform: uppercase;"> {{ weather.weather[0].main }}</h2>
     <h3 > {{ weather.weather[0].description }}</h3>
@@ -6,3 +7,5 @@
     <p>{{ weather.dt_txt}}</p>
     <a [routerLink]="['/detail-report']">Detail Report</a>
 </mat-card>
+
+</div>
