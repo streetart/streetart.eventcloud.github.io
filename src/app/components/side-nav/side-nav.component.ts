@@ -1,10 +1,8 @@
-
-import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, ViewChild, Component, OnDestroy} from '@angular/core';
+import {MediaMatcher} from '@angular/cdk/layout';
 
 import { trigger, transition, group, query, style, animate } from '@angular/animations';
-import {MatButton, MatIcon, MatToolbar, MatMenu, MatSidenav} from '@angular/material';
-
+import {MatSidenav} from '@angular/material';
 
 
 @Component({

@@ -4,7 +4,6 @@ import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {APP_CONFIG, AppConfig} from './app.config';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatMenuModule, MatSidenavModule, MatNavList} from '@angular/material';
 
 
 import {AppComponent} from './app.component';
@@ -19,7 +18,8 @@ import {WeatherTodayComponent} from './weather-today/weather-today.component';
 import {SideNavComponent} from './components/side-nav/side-nav.component';
 import { BaseComponent } from './templates/base/base.component';
 
-
+/** ONLY IMPORT ENTRY COMPONENTS */
+import {AppMaterialModule} from './shared/material.module'
 
 // import {TranslateModule} from '@ngx-translate/core';
 
@@ -31,22 +31,20 @@ import { BaseComponent } from './templates/base/base.component';
         HttpModule,
         AppRoutingModule,
         BrowserAnimationsModule,
-        MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatMenuModule, MatSidenavModule,
-    ],
-    exports: [
-        MatButtonModule, MatCheckboxModule, MatToolbarModule, MatIconModule, MatMenuModule, MatSidenavModule,
+        /** App Modules */
+        AppMaterialModule,
+
     ],
 
     declarations: [
         AppComponent,
-       WeatherSearchComponent,
+        WeatherSearchComponent,
         WeatherListComponent,
         WeatherItemComponent,
         HeaderComponent,
         PageNotFoundComponent,
         WeatherTodayComponent,
         SideNavComponent,
-        MatNavList,
         BaseComponent
 
     ],
