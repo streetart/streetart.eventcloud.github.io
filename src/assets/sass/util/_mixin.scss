@@ -325,8 +325,8 @@
 }
 
 @mixin body-gradient-animation() {
-    height: 100vh;
-    background: linear-gradient(-45deg, #8979EE, #6B58EA, #6AC5E5, #45B6DE);
+    height: 100%;
+    background: linear-gradient(-45deg, #008CA0, #3f828d, #6B5174, #B72C56);
     background-size: 400% 400%;
     -webkit-animation: Gradient 15s ease infinite;
     -moz-animation: Gradient 15s ease infinite;
