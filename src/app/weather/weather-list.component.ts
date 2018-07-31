@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
   providers: [WeatherService]
 })
 export class WeatherListComponent implements OnInit {
-  //@Input('city') cityName: String;
+  @Input('city') cityName: String;
   @Input('WeatherForecastList') weathers: any;
   errorMessage: string;
  // weathers: any[];
@@ -28,10 +28,11 @@ export class WeatherListComponent implements OnInit {
     this.weathers = this._weatherService.getWeatherItems();
     // console.log(cityName);
 
-    this._weatherService.getWeatherForecast('Amritsar')
+    this._weatherService.getWeatherForecast('Cape Town')
          .subscribe(data => {this.weathers = data},
                     error =>  this.errorMessage = <any>error
      );
+    this._weatherService.getWeatheritemsbyCity('Cape Town');
     }
 
     gotoDetailpage(id: number): any {
