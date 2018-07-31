@@ -1,0 +1,96 @@
+@import "../../assets/sass/settings/settings";
+.search_container {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  background: rgba(0, 0, 0, .9);
+  display: none;
+  z-index: 20;
+  overflow: hidden;
+}
+
+input[type="search"] {
+  border: none;
+  background-color: transparent;
+  color: #fff;
+  font-size: 80px;
+  margin: 80px;
+  border-bottom: 2px solid #fff;
+}
+
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
+input[type="search"]:focus {
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  color: #ffffff;
+}
+
+:-moz-placeholder {
+  color: #ffffff;
+  opacity: 1;
+}
+
+::-moz-placeholder {
+  color: #ffffff;
+  opacity: 1;
+}
+
+:-ms-input-placeholder {
+  color: #ffffff;
+}
+
+#search {
+  position: absolute;
+  cursor: pointer;
+  right: 19px;
+  top: 19px;
+}
+
+.rtoc {
+  background-image: url(../../assets/images/icons/search-icon.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  stroke: $dark-gray;
+  width: 24px;
+  height: 24px;
+
+}
+
+.rtoc.close {
+  background-image: url(../../assets/images/icons/close-icon.svg);
+  background-size: 100%;
+  stroke: $dark-gray;
+  width: 24px;
+  height: 24px;
+}
+
+.search_container {
+  @include r(320)  {
+    input[type="search"] {
+      font-size: 32px;
+      margin: 200px 20px 20px;
+      border-bottom: 2px solid #fff;
+    }
+
+  }
+  @include r(480)  { }
+  @include r(768)  {
+    input[type="search"] {
+      border: none;
+      background-color: transparent;
+      color: #fff;
+      font-size: 80px;
+      margin: 80px;
+      border-bottom: 2px solid #fff;
+    }
+  }
+  @include r(1024) { }
+  @include r(1140) { }
+  @include r(1280) { }
+}

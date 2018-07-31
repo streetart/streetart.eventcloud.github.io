@@ -1,15 +1,22 @@
-
-
 <section class="weather-search" class="form-group">
-  <form   >
-    <div class="form-group">
-      <input class="form-control" type="text" placeholder="Enter city name" id="city" [(ngModel)] ="cityName" name="cityname" (input)="onSearchLocationWithEvent($event)">
-
+    <div id="search">
+        <div class="icon">
+            <div class="rtoc"></div>
+        </div>
     </div>
-    <button mat-raised-button color="primary" [disabled]="disabledForecastButton" (click) ="onSubmitDatabinding()" type="submit">Forecast</button>
-    {{disabledForecastButton}}
-    <!--{{cityName}}-->
-  </form>
-  <weather-list [WeatherForecastList]="weatherForecastData"></weather-list>
+
+    <div class="search_container">
+        <input class="form-control" type="search" placeholder="Enter city name" id="city" [(ngModel)]="cityName"
+               name="cityname" (input)="onSearchLocationWithEvent($event)" (ended)="onSearchLocationWithEvent()">
+        <br/>
+        <button mat-raised-button  color="primary" class="btn large close" [disabled]="disabledForecastButton" (click)="onSubmitDatabinding()"
+                type="submit">Search Forecast
+        </button>
+        <!--{{disabledForecastButton}}-->
+        <!--<input type=search name=search placeholder="Search your city...">-->
+        <div class="close"></div>
+    </div>
 </section>
+<weather-list [WeatherForecastList]="weatherForecastData"></weather-list>
+
 

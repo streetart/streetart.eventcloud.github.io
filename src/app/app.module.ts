@@ -21,7 +21,9 @@ import {WeatherIconsComponent} from './components/weather-icons/weather-icons.co
 
 /** ONLY IMPORT ENTRY COMPONENTS */
 import {AppMaterialModule} from './shared/material.module';
-import { GraphsComponent } from './components/graphs/graphs.component'
+import { GraphsComponent } from './components/graphs/graphs.component';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { FooterComponent } from './components/footer/footer.component'
 
 
 @NgModule({
@@ -49,7 +51,9 @@ import { GraphsComponent } from './components/graphs/graphs.component'
         SideNavComponent,
         BaseComponent,
         WeatherIconsComponent,
-        GraphsComponent
+        GraphsComponent,
+        SearchBarComponent,
+        FooterComponent
 
     ],
 

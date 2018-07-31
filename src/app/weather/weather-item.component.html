@@ -1,4 +1,4 @@
-<div class="col-sm-2 col-md-4">
+
     <div class="weather-card one {{ weather.weather[0].main }}">
         <div class="top">
             <div class="wrapper">
@@ -7,7 +7,7 @@
                     <a href="javascript:;"><span class="lnr lnr-cog"></span></a>
                 </div>
                 <h1 class="heading"> {{ weather.weather[0].main }}</h1>
-                <h3 class="location">Dhaka, Bangladesh</h3>
+                <h3 class="location"> {{ weather.weather[0].description }}</h3>
                 <p class="temp">
                     <span class="temp-value">{{ weather.main.temp }}</span>
                     <span class="deg">0</span>
@@ -16,7 +16,6 @@
             </div>
         </div>
         <div class="bottom">
-
             <div class="wrapper">
                 <ul class="forecast">
                     <a href="javascript:;"><span class="lnr lnr-chevron-up go-up"></span></a>
@@ -33,7 +32,7 @@
 
         </div>
     </div>
-
+<!--
     <mat-card class="full-width">
 
         <h2 style="text-transform: uppercase;"> {{ weather.weather[0].main }}</h2>
@@ -43,4 +42,5 @@
         <p>{{ weather.dt_txt}}</p>
         <a [routerLink]="['/detail-report']">Detail Report</a>
     </mat-card>
-</div>
+
+-->

@@ -11,7 +11,7 @@ $pesticide-debug-depth: false;
 
 //Grid
 @import "./assets/sass/grid/grid-module";
-@import "./assets/sass/fragments/graphs.component";
+//@import "./assets/sass/fragments/graphs.component";
 
 // Typography
 
@@ -47,5 +47,7 @@ $pesticide-debug-depth: false;
 
 @include media-queries;
 @include typography;
+
+
 
 

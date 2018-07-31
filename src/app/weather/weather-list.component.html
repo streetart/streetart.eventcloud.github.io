@@ -1,9 +1,8 @@
 <!--<weather-search></weather-search>-->
-<div class="container-fluid">
-
-    <weather-item *ngFor="let weather of weathers | slice:0:3" [WeatherItem]="weather"></weather-item>
-
+<div class="container">
+<div class="row">
+    <weather-item *ngFor="let weather of weathers | slice:0:1" [WeatherItem]="weather"></weather-item>
 </div>
 
 
-
+</div>

@@ -3,16 +3,17 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700,800,900');
 
 .weather-card {
-  margin: 60px auto;
   height: 740px;
-  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
   background: #fff;
   // border-radius: 20px;
   box-shadow: 0 1px 38px rgba(0, 0, 0, 0.15), 0 5px 12px rgba(0, 0, 0, 0.25);
   overflow: hidden;
+  position: relative;
   .top {
     position: relative;
-    height: 570px;
+    height: 400px;
     width: 100%;
     overflow: hidden;
     background: url("https://s-media-cache-ak0.pinimg.com/564x/cf/1e/c4/cf1ec4b0c96e59657a46867a91bb0d1e.jpg") no-repeat;

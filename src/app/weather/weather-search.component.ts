@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {WeatherService} from './weather.service';
 import {Subject} from 'rxjs/Rx';
 import {Weather} from './weather';
+import {close} from 'fs';
 
 
 @Component({
@@ -15,7 +16,7 @@ export class WeatherSearchComponent implements OnInit {
     disabledForecastButton: boolean = true;
     cityName:string;
 
-    constructor(private _weatherService:WeatherService) {
+    constructor(private _weatherService: WeatherService) {
     }
 
     ngOnInit() {
