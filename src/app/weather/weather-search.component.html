@@ -6,7 +6,7 @@
       <input class="form-control" type="text" placeholder="Enter city name" id="city" [(ngModel)] ="cityName" name="cityname" (input)="onSearchLocationWithEvent($event)">
 
     </div>
-    <button mat-button class="button primary close" [disabled]="disabledForecastButton" (click) ="onSubmitDatabinding()" type="submit">Forecast</button>
+    <button mat-raised-button color="primary" [disabled]="disabledForecastButton" (click) ="onSubmitDatabinding()" type="submit">Forecast</button>
     {{disabledForecastButton}}
     <!--{{cityName}}-->
   </form>

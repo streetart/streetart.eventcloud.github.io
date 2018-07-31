@@ -6,23 +6,19 @@ import 'rxjs/Rx';
 import { APP_CONFIG, IAppConfig } from '../app.config';
 import { environment } from '../../environments/environment';
 
-//const APPID = '45f4dd45e0f724512ba044c5a2caf4bc';
+
 
 @Injectable()
 export class WeatherService {
-  
-  //private baseUrl='http://api.openweathermap.org/data/2.5/';
 
-  //constructor(@Inject(APP_CONFIG) private config: IAppConfig, private http: Http) { }
-  
-  constructor(private http: Http) { 
+  constructor(private http: Http) {
      console.log('Production='+ environment.production);
 
   }
 
   getWeatherItems(){
     	return WEATHER_LIST;
-  } 
+  }
 
   getWeatheritemsbyCity(cityName): Observable<any>{
 

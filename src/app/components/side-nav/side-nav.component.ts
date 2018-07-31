@@ -24,7 +24,7 @@ export class SideNavComponent implements OnDestroy{
         clickIconToClose: true,
         showProgressBar: true,
         maxStack: 1,
-        position: ["bottom", "right"],
+        position: ['bottom', 'right'],
         animate: 'fromRight'
     };
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {

@@ -119,7 +119,6 @@ body {
   padding-left: 50px;
   max-height: 200px;
   &.contain-dark {
-    @include body-gradient-animation;
     color: #FFF;
     text-align: center;
   }

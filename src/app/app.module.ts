@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {APP_CONFIG, AppConfig} from './app.config';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';;
 
 
 import {AppComponent} from './app.component';
@@ -17,6 +17,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {WeatherTodayComponent} from './weather-today/weather-today.component';
 import {SideNavComponent} from './components/side-nav/side-nav.component';
 import { BaseComponent } from './templates/base/base.component';
+import {WeatherIconsComponent} from './components/weather-icons/weather-icons.component';
 
 /** ONLY IMPORT ENTRY COMPONENTS */
 import {AppMaterialModule} from './shared/material.module'
@@ -38,19 +39,20 @@ import {AppMaterialModule} from './shared/material.module'
 
     declarations: [
         AppComponent,
-        WeatherSearchComponent,
+       WeatherSearchComponent,
         WeatherListComponent,
         WeatherItemComponent,
         HeaderComponent,
         PageNotFoundComponent,
         WeatherTodayComponent,
         SideNavComponent,
-        BaseComponent
+        BaseComponent,
+        WeatherIconsComponent
 
     ],
 
     providers: [WeatherService, {provide: APP_CONFIG, useValue: AppConfig}],
     bootstrap: [AppComponent]
 })
-export class AppModule {
+export class AppModules {
 }

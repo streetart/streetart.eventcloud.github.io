@@ -1,7 +1,7 @@
 <!--<weather-search></weather-search>-->
 <div class="container-fluid">
 
-        <weather-item *ngFor="let weather of weathers; let i = index;" [WeatherItem]="weather"></weather-item>
+    <weather-item *ngFor="let weather of weathers | slice:0:3" [WeatherItem]="weather"></weather-item>
 
 </div>
 

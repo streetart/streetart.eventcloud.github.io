@@ -13,7 +13,10 @@
     <!-- start content block -->
     <div class="content">
         <div class="body-content">
-            <ng-content select="[content]"></ng-content>
+          <weather-list></weather-list>
+            <ng-content select="[content]">
+
+            </ng-content>
         </div>
 
         <div class="footer-content">
