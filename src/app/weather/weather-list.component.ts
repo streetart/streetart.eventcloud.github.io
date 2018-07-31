@@ -3,6 +3,7 @@ import {Weather} from './weather';
 import { WEATHER_LIST } from './weather.data';
 import { WeatherService } from './weather.service';
 import { Router } from '@angular/router';
+import {GraphsComponent} from '../components/graphs/graphs.component';
 
 @Component({
   selector: 'weather-list',
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
 export class WeatherListComponent implements OnInit {
   @Input('city') cityName: String;
   @Input('WeatherForecastList') weathers: any;
+    @Input('GrapItem') graph: GraphsComponent;
   errorMessage: string;
  // weathers: any[];
 
@@ -23,7 +25,7 @@ export class WeatherListComponent implements OnInit {
   }
 
   ngOnInit():any {
-
+      this.graph = new GraphsComponent();
   	this.weathers = WEATHER_LIST;
     this.weathers = this._weatherService.getWeatherItems();
     // console.log(cityName);

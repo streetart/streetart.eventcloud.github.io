@@ -1,5 +1,6 @@
 import {Component, Input} from '@angular/core';
 import {Weather} from './weather';
+import {GraphsComponent} from '../components/graphs/graphs.component';
 
 @Component({
     selector: 'weather-item',
@@ -9,8 +10,10 @@ import {Weather} from './weather';
 })
 export class WeatherItemComponent {
     @Input('WeatherItem') weather: Weather;
+    @Input('GrapItem') graph: GraphsComponent;
 
     constructor(){
       this.weather = new Weather('Cape Town', 'Cloudy', 24);
+      this.graph = new GraphsComponent();
     }
 }

@@ -1,0 +1,14 @@
+@import "../../../assets/sass/settings/settings";
+@import "../../../assets/sass/grid/grid-module";
+
+.graph-measurement{
+  background-color:$primary-dark;
+  overflow:hidden;
+  text-align:center;
+}
+
+svg{
+  opacity:0;
+  width:100%;
+  height:60%;
+}

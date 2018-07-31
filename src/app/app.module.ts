@@ -20,9 +20,9 @@ import { BaseComponent } from './templates/base/base.component';
 import {WeatherIconsComponent} from './components/weather-icons/weather-icons.component';
 
 /** ONLY IMPORT ENTRY COMPONENTS */
-import {AppMaterialModule} from './shared/material.module'
+import {AppMaterialModule} from './shared/material.module';
+import { GraphsComponent } from './components/graphs/graphs.component'
 
-// import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
 
@@ -38,6 +38,7 @@ import {AppMaterialModule} from './shared/material.module'
     ],
 
     declarations: [
+
         AppComponent,
        WeatherSearchComponent,
         WeatherListComponent,
@@ -47,7 +48,8 @@ import {AppMaterialModule} from './shared/material.module'
         WeatherTodayComponent,
         SideNavComponent,
         BaseComponent,
-        WeatherIconsComponent
+        WeatherIconsComponent,
+        GraphsComponent
 
     ],
 

@@ -119,6 +119,7 @@ body {
   padding-left: 50px;
   max-height: 200px;
   &.contain-dark {
+    background-color:$primary-dark;
     color: #FFF;
     text-align: center;
   }
